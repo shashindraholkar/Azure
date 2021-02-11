@@ -1,0 +1,36 @@
+{
+ "properties": {
+  "displayName": "Deny resource groups missing tag: ProjectCode",
+  "policyType": "Custom",
+  "mode": "All",
+  "description": "Uniquely identifies where the costs of the resource should be associated in an external financial system.",
+  "metadata": {
+   "category": "Tags",
+   "createdBy": "992e6efe-65a5-44a8-8bf6-db539c7fff51",
+   "createdOn": "2021-02-11T19:47:42.5063559Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {},
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.Resources/subscriptions/resourceGroups"
+     },
+     {
+      "field": "tags.ProjectCode",
+      "exists": false
+     }
+    ]
+   },
+   "then": {
+    "effect": "deny"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/Production/providers/Microsoft.Authorization/policyDefinitions/134cc93a-d522-4ce7-83fc-061ee83a7f30",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "134cc93a-d522-4ce7-83fc-061ee83a7f30"
+}
